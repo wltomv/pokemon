@@ -8,7 +8,7 @@ class PokemonScreen extends StatelessWidget {
   static Widget create(BuildContext context) {
     return BlocProvider<PokemonCubit>(
       create: (_) => PokemonCubit(context.read())..loadPokemon(),
-      child: PokemonScreen(),
+      child: const PokemonScreen(),
     );
   }
 
