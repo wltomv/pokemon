@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pokemon/models/models.dart';
 import 'package:pokemon/repository/pokemon_repository.dart';
 
 class PokemonCubit extends Cubit<PokemonState> {
@@ -28,7 +29,7 @@ class PokemonInitialState extends PokemonState {}
 class PokemonLoadingState extends PokemonState {}
 
 class PokemonCompleteState extends PokemonState {
-  final List pokemon;
+  final List<Pokemon> pokemon;
 
   PokemonCompleteState(this.pokemon);
 }
