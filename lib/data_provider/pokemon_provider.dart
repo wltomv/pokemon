@@ -3,8 +3,8 @@ import 'package:pokemon/models/models.dart';
 import 'package:http/http.dart' as http;
 
 class PokemonProvider {
-  static const String _baseUrl = 'https://pokeapi.co/api/v2/';
-  static const String pokemonUrl = 'pokemon';
+  static const String _baseUrl = "pokeapi.co";
+  static const String _pokemonUrl = '/api/v2/pokemon';
 
   final http.Client _httpClient;
 
@@ -12,7 +12,7 @@ class PokemonProvider {
       : _httpClient = httpClient ?? http.Client();
 
   Future pokemon() async {
-    final result = await _callGetApi(endpoint: pokemonUrl);
+    final result = await _callGetApi(endpoint: _pokemonUrl);
 
     return result.results;
   }
@@ -21,7 +21,7 @@ class PokemonProvider {
     required String endpoint,
   }) async {
     try {
-      var uri = Uri.https(_baseUrl, endpoint);
+      var uri = Uri.https(_baseUrl, endpoint, {});
 
       final response = await _httpClient.get(uri);
       final result = PagePokemon.fromJson(json.decode(response.body));
