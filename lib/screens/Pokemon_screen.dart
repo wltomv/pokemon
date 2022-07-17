@@ -22,10 +22,7 @@ class PokemonScreen extends StatelessWidget {
             pinned: true,
             expandedHeight: 200,
             backgroundColor: Colors.white,
-            flexibleSpace: Flexible(
-              child: _frontpage(),
-              fit: FlexFit.tight,
-            ),
+            flexibleSpace: _frontpage(),
           ),
           BlocBuilder<PokemonCubit, PokemonState>(
             builder: (context, state) {
